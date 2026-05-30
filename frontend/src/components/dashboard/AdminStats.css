@@ -1,0 +1,28 @@
+.astats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.astats-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 10px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.astats-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--shadow-md);
+}
+
+.astats-top    { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.astats-icon   { font-size: 26px; }
+.astats-trend  { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; }
+.trend-up      { background: var(--sage-pale); color: var(--sage); }
+.trend-down    { background: var(--coral-pale); color: var(--coral); }
+
+.astats-val    { font-size: 26px; font-weight: 700; color: var(--navy); font-family: 'Playfair Display', serif; line-height: 1; }
+.astats-label  { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+.astats-sub    { font-size: 11px; color: var(--text-muted); margin-top: 4px; font-style: italic; }

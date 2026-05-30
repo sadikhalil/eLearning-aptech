@@ -1,0 +1,152 @@
+/* Hero */
+.hero { background: var(--cream); padding: 5rem 0 4rem; }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-eyebrow {
+  display: inline-block;
+  background: var(--sage-pale);
+  color: var(--sage);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 1.25rem;
+}
+.hero-title {
+  font-size: clamp(38px, 5vw, 58px);
+  font-family: 'Playfair Display', serif;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+.hero-title-accent { color: var(--sage); }
+.hero-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 460px;
+}
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-outline { border-color: var(--navy); color: var(--navy); }
+.hero-outline:hover { background: var(--navy); color: var(--cream); }
+
+/* Hero visual */
+.hero-visual { display: flex; justify-content: center; }
+.hero-card-stack { position: relative; width: 320px; height: 280px; }
+.hcard {
+  position: absolute;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  box-shadow: 0 4px 20px var(--shadow);
+  width: 260px;
+}
+.hcard-icon { font-size: 28px; flex-shrink: 0; }
+.hcard-title { font-size: 13px; font-weight: 600; color: var(--navy); }
+.hcard-1 { top: 0; left: 0; transform: rotate(-2deg); }
+.hcard-2 { top: 80px; right: 0; transform: rotate(1.5deg); z-index: 1; }
+.hcard-3 { bottom: 0; left: 20px; transform: rotate(-1deg); }
+
+/* Stats */
+.stats-strip {
+  background: var(--navy);
+  padding: 2.5rem 0;
+}
+.stats-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+.stat-item  {}
+.stat-value { font-size: 28px; font-weight: 700; color: var(--cream); font-family: 'Playfair Display', serif; }
+.stat-label { font-size: 13px; color: rgba(251,245,221,0.6); margin-top: 4px; }
+
+/* Section head */
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.section-title { font-size: 26px; font-family: 'Playfair Display', serif; color: var(--navy); }
+.section-sub   { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.empty-icon { font-size: 48px; margin-bottom: 1rem; }
+
+/* How it works */
+.how-section {
+  background: var(--cream-dark);
+  padding: 4rem 0;
+  margin: 2rem 0;
+}
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.how-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  position: relative;
+}
+.how-num {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  width: 28px; height: 28px;
+  background: var(--navy);
+  color: var(--cream);
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.how-icon  { font-size: 36px; margin-bottom: 1rem; }
+.how-title { font-size: 17px; font-family: 'Playfair Display', serif; color: var(--navy); margin-bottom: 8px; }
+.how-desc  { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+/* CTA */
+.cta-banner {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-muted) 100%);
+  padding: 3.5rem 0;
+  margin-top: 2rem;
+}
+.cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.cta-title { font-size: 26px; color: var(--cream); font-family: 'Playfair Display', serif; }
+.cta-sub   { font-size: 14px; color: rgba(251,245,221,0.7); margin-top: 6px; }
+
+@media (max-width: 768px) {
+  .hero-inner    { grid-template-columns: 1fr; }
+  .hero-visual   { display: none; }
+  .stats-inner   { grid-template-columns: repeat(2, 1fr); }
+  .cta-inner     { flex-direction: column; text-align: center; }
+}

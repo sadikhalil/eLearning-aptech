@@ -1,0 +1,60 @@
+.courses-page { padding-bottom: 4rem; }
+.courses-header {
+  display: flex; align-items: flex-end;
+  justify-content: space-between;
+  padding: 2.5rem 0 1.5rem;
+  flex-wrap: wrap; gap: 1rem;
+}
+.courses-title { font-size: 30px; font-family: 'Playfair Display', serif; color: var(--navy); }
+.courses-sub   { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+
+/* Search */
+.search-wrap {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+.search-icon {
+  position: absolute; left: 14px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px; pointer-events: none;
+}
+.search-input {
+  width: 100%;
+  padding: 12px 42px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--white);
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-input:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(27,45,79,0.08);
+}
+.search-clear {
+  position: absolute; right: 14px; top: 50%;
+  transform: translateY(-50%);
+  background: none; border: none;
+  color: var(--text-muted);
+  font-size: 14px; cursor: pointer;
+}
+
+/* Filters */
+.filters-row  { display: flex; flex-direction: column; gap: 10px; margin-bottom: 2rem; }
+.filter-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.filter-label { font-size: 12px; font-weight: 600; color: var(--text-muted); min-width: 64px; }
+.filter-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  font-size: 12px; font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.chip:hover  { border-color: var(--navy); color: var(--navy); }
+.chip.active { background: var(--navy); border-color: var(--navy); color: var(--cream); }

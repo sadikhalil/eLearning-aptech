@@ -1,0 +1,112 @@
+.detail-page { padding-bottom: 4rem; }
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  align-items: start;
+}
+
+/* Thumbnail */
+.detail-thumb {
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  position: relative;
+  background: var(--navy);
+}
+.detail-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumb-placeholder {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 80px;
+  font-family: 'Playfair Display', serif;
+  color: rgba(251,245,221,0.4);
+  font-weight: 700;
+}
+.thumb-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px; color: white;
+}
+.lock-icon { font-size: 40px; }
+
+/* Active lesson */
+.active-lesson-info { padding: 1rem 0; }
+.active-lesson-title { font-size: 18px; font-family: 'Playfair Display', serif; color: var(--navy); }
+.active-lesson-desc  { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+/* Progress */
+.op-row    { display: flex; justify-content: space-between; align-items: center; }
+.op-label  { font-size: 13px; font-weight: 600; color: var(--navy); }
+.op-pct    { font-size: 16px; font-weight: 700; color: var(--sage); }
+.op-meta   { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+
+/* Lessons */
+.lessons-wrap     { padding: 1.25rem; }
+.lessons-heading  { font-size: 16px; font-family: 'Playfair Display', serif; color: var(--navy); margin-bottom: 4px; }
+.lessons-meta     { font-size: 12px; color: var(--text-muted); margin-bottom: 1rem; }
+.lesson-list      { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.lesson-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.lesson-item:hover        { background: var(--cream); }
+.lesson-item.active       { background: var(--cream-dark); }
+.lesson-item.locked       { cursor: default; opacity: 0.65; }
+.lesson-status {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--cream-dark);
+  color: var(--navy-muted);
+  font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.lesson-status.done    { background: var(--sage-pale); color: var(--sage); }
+.lesson-status.playing { background: var(--navy);       color: var(--cream); }
+.lesson-info  { flex: 1; }
+.lesson-name  { font-size: 13px; color: var(--text-primary); }
+.preview-tag  { font-size: 10px; color: var(--sage); font-weight: 600; margin-left: 8px; }
+.lesson-right { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.lesson-prog-mini { display: flex; align-items: center; }
+.lesson-dur   { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+.lock-icon-sm { font-size: 12px; }
+
+/* Sidebar */
+.sidebar-sticky { position: sticky; top: 84px; }
+.sidebar-card   { padding: 1.5rem; }
+.sidebar-price  { font-size: 28px; font-weight: 700; margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
+.enrolled-badge {
+  width: 100%; padding: 12px;
+  background: var(--sage-pale);
+  color: var(--sage);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px; font-weight: 600;
+}
+.sidebar-meta   { margin-top: 1.25rem; display: flex; flex-direction: column; gap: 10px; }
+.sm-row         { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-secondary); }
+.sidebar-section-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 1rem; }
+.instructor-row    { display: flex; gap: 12px; align-items: flex-start; }
+.instructor-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 16px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.instructor-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+.instructor-bio  { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+
+@media (max-width: 900px) {
+  .detail-grid { grid-template-columns: 1fr; }
+  .sidebar-sticky { position: static; }
+}
