@@ -7,15 +7,21 @@ import {
   isTokenExpired,
 } from "../utils/tokenUtils";
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000/api/v1";
+// ── Base URL ───────────────────────────────────────────────────────────────────
+// In development: http://localhost:8000/api/v1
+// In production:  your Hugging Face URL/api/v1
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://sadiakhalil-elearning-bakcend.hf.space";
+
+console.log("API Base URL:", BASE_URL); // helps debug connection issues
 
 const api = axios.create({
   baseURL: BASE_URL,
   headers: { "Content-Type": "application/json" },
-  timeout: 15000,
+  timeout: 30000, // 30 seconds — HF spaces can be slow on cold start
+  withCredentials: false,
 });
 
-// ── Request interceptor: attach JWT to every request ──────────────────────────
+// ── Request interceptor: attach JWT ───────────────────────────────────────────
 api.interceptors.request.use(
   (config) => {
     const token = getAccessToken();
@@ -41,11 +47,9 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    // If 401 and not already retrying
     if (error.response?.status === 401 && !originalRequest._retry) {
       const refreshToken = getRefreshToken();
 
-      // No refresh token → force logout
       if (!refreshToken || isTokenExpired(refreshToken)) {
         clearTokens();
         window.location.href = "/login";
@@ -53,7 +57,6 @@ api.interceptors.response.use(
       }
 
       if (isRefreshing) {
-        // Queue this request until refresh completes
         return new Promise((resolve, reject) => {
           failedQueue.push({ resolve, reject });
         })
@@ -71,7 +74,6 @@ api.interceptors.response.use(
         const { data } = await axios.post(`${BASE_URL}/auth/refresh`, {
           refresh_token: refreshToken,
         });
-
         saveTokens(data.access_token, data.refresh_token);
         api.defaults.headers.common.Authorization = `Bearer ${data.access_token}`;
         processQueue(null, data.access_token);
