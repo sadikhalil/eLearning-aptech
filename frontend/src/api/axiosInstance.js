@@ -10,7 +10,7 @@ import {
 // ── Base URL ───────────────────────────────────────────────────────────────────
 // In development: http://localhost:8000/api/v1
 // In production:  your Hugging Face URL/api/v1
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://sadiakhalil-elearning-bakcend.hf.space";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://sadiakhalil-elearning-bakcend.hf.space/api/v1";
 
 console.log("API Base URL:", BASE_URL); // helps debug connection issues
 
